@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="navbar">
+  <div class="leftMenu">
+<!--    <button mat-icon-button (click)="sidenav.toggle()">-->
+<!--      <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>-->
+<!--      <mat-icon *ngIf="sidenav.opened">menu_open</mat-icon>-->
+<!--    </button>-->
+    <a [routerLink]="['']">Cetelem</a>
+  </div>
+  <div class="rightMenu">
+    <button mat-button [matMenuTriggerFor]="lessons">Lessons</button>
+    <mat-menu #lessons="matMenu">
+      <ng-template matMenuContent>
+        <button mat-menu-item [matMenuTriggerFor]="subMenu1">JS Frameworks</button>
+        <mat-menu #subMenu1="matMenu">
+          <button mat-menu-item>Angular</button>
+          <button mat-menu-item>React</button>
+          <button mat-menu-item>Vue</button>
+        </mat-menu>
+        <button mat-menu-item [matMenuTriggerFor]="subMenu2">Design Frameworks</button>
+        <mat-menu #subMenu2="matMenu">
+          <button mat-menu-item>Bootstrap</button>
+          <button mat-menu-item>Angular Material</button>
+        </mat-menu>
+      </ng-template>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="languages">Language</button>
+    <mat-menu #languages="matMenu">
+      <ng-template matMenuContent>
+        <button mat-menu-item>English</button>
+        <button mat-menu-item>Français</button>
+      </ng-template>
+    </mat-menu>
+    <button mat-button>Logout</button>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,8 @@
+
+/*FOOTER*/
+
+mat-toolbar{
+  display: flex;
+  justify-content: flex-end;
+}
+

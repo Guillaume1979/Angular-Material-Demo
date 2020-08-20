@@ -1,0 +1,25 @@
+/*HEADER*/
+
+mat-toolbar {
+  height: 100px;
+}
+
+.navbar {
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar button {
+  font-size: 17px;
+  margin: 0px 10px;
+}
+
+.leftMenu {
+  display: flex;
+  align-items: center;
+}
