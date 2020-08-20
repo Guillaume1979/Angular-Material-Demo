@@ -4,5 +4,6 @@ h1 {
 }
 
 mat-expansion-panel {
-  margin: 0 20px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
