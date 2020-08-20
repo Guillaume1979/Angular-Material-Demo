@@ -7,6 +7,10 @@
     <a [routerLink]="['']">Cetelem</a>
   </div>
   <div class="rightMenu">
+    <button mat-button [matMenuTriggerFor]="examples">Exemples Material</button>
+    <mat-menu #examples>
+      <button mat-menu-item [routerLink]="['panel']">Panels</button>
+    </mat-menu>
     <button mat-button [matMenuTriggerFor]="lessons">Lessons</button>
     <mat-menu #lessons="matMenu">
       <ng-template matMenuContent>
