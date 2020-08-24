@@ -5,14 +5,14 @@
 
 `ng add @angular/material`
 
-Pour permettre une meilleure gestion des modules de Material, on va ensuite créer un module dédié dans un répertoire séparé.
+To allow a better handle of Material modules, we will create a dedicated module in a separated directory.
 
-Taper dans le terminal à l'aide de Angular CLI :
+Use the following command with Angular CLI :
 ``ng g m material``
 
-Dans material.module.ts on ajoute une constante qui contiendra l'ensemble des modules de Material que l'on va utiliser dans notre application.
+In material.module.ts, add a constant which contains all the Angular Material that you import in your project.
 
-Exemple :
+Example :
 ```typescript
 const MaterialComponents = [
   MatButtonModule,
@@ -21,7 +21,7 @@ const MaterialComponents = [
 ];
 ```
 
-Puis on ajoute 
+then add 
 
 ```typescript
 @NgModule({
@@ -29,12 +29,11 @@ Puis on ajoute
   exports: [MaterialComponents]
 })
 ```
-
-Et enfin on importe le module dans app.module.ts
+And finally import the dedicated module that you just created in app.module.ts
 ```typescript
 import { MaterialModule } from './material/material.module';
 ```
-et on met le module dans les imports
+and put the module in imports
 ```typescript
 imports: [
     BrowserModule,
@@ -44,9 +43,9 @@ imports: [
   ]
 ```
 
-## 2. Les principales fonctionnalités
-Documentation officielle : [Angular Material](https://material.angular.io/components/categories)
-#### 1. Les boutons
+## 2. Main features
+Official documentation : [Angular Material](https://material.angular.io/components/categories)
+#### 1. Buttons
 Import : ``MatButtonModule``
 ```html
 <div>
@@ -69,13 +68,13 @@ Import : ``MatButtonModule``
 </div>
 
 <div>
-  <button mat-raised-button color="primary" disableRipple>Clique sur Toto</button>
-  <button mat-raised-button color="accent">Clique sur Toto</button>
-  <button mat-raised-button color="warn">Clique sur Toto</button>
-  <button mat-fab color="accent" >Clique</button>
+  <button mat-raised-button color="primary" disableRipple>Click here</button>
+  <button mat-raised-button color="accent">Click here</button>
+  <button mat-raised-button color="warn">Click here</button>
+  <button mat-fab color="accent" >Click</button>
 </div>
 ```
-#### 2. Les boutons Toggle
+#### 2. Toggle buttons
 Import ``MatButtonToggleModule``
 
 ```html
@@ -94,7 +93,7 @@ Import ``MatButtonToggleModule``
 </div>
 ```
 
-#### 3. Les Icons
+#### 3. Icons
 Import ``MatIconModule``
 ```html
 <div>
@@ -102,7 +101,7 @@ Import ``MatIconModule``
 </div>
 ```
 
-#### 4. Les badges
+#### 4. Badges
 Import ``MatBadgeModule``
 ```html
 <div>
@@ -115,16 +114,16 @@ We can also use :
 
 ``[matBadgeHidden]`` to hide the notification in certain cases
 
-#### 5. Le spinner
+#### 5. Spinner
 Import ``MatProgressSpinnerModule``
 ```html
-<!--Spinner qui se charge en fonction d'une valeur définie dans le composant-->
+<!--Spinner which loads itself up to a defined value in the TS component-->
 <mat-progress-spinner [value]="spinnerValue"></mat-progress-spinner>
-<!--ou un spinner en rotation (pour les chargements par ex)-->
+<!--or a rotating spinner (for in progress loading for example)-->
 <mat-spinner></mat-spinner>
 ```
 
-#### 6. La navbar (with ToolBar)
+#### 6. Navbar (with ToolBar)
 Import ``MatToolbarModule``
 ```html
 <mat-toolbar color="primary" class="navbar">
@@ -136,7 +135,7 @@ Import ``MatToolbarModule``
   </div>
 </mat-toolbar>
 ```
-Et le css correspondant :
+And corresponding CSS :
 ```css
 .navbar {
   justify-content: space-between;
@@ -174,7 +173,7 @@ An example with a hamburger menu to toggle the sidenav
 </mat-sidenav-container>
 ```
 
-#### 8. Le menu
+#### 8. Menu (dropdown menu)
 Import ``MatMenuModule``
 ```html
     <button mat-button [matMenuTriggerFor]="lessons">Lessons</button>
@@ -213,7 +212,7 @@ We can also proceed to lazzy loading of the menu content with ``ng-template`` et
 </mat-menu>
 ```
 
-#### 9. Les listes
+#### 9. Lists
 Import ``MatListModule``
 
 ##### Simple list :
@@ -224,7 +223,7 @@ Import ``MatListModule``
       <mat-list-item>Item 3</mat-list-item>
     </mat-list>
 ```
-###### list for navigation
+##### List for navigation
 You can use it in a sidenav for example.
 ```html
     <mat-nav-list>
@@ -253,7 +252,7 @@ Import also ``MatDividerModule``
 ```
 The ``mat-divider`` tag allows to separate the different list items.
 
-#### 10. Les grid list
+#### 10. Grid list
 Import ``MatGridListModule``
 ```html
     <mat-grid-list cols="2" rowHeight="100px" gutterSize="15px">
@@ -265,7 +264,7 @@ Import ``MatGridListModule``
     </mat-grid-list>
 ```
 
-#### 11. Les panels (dépliants)
+#### 11. Panels
 Import `MatExpansionModule`
 
 The accordion tag allows to close automaticaly a panel when another one is opening
@@ -303,8 +302,7 @@ The accordion tag allows to close automaticaly a panel when another one is openi
 </mat-accordion>
 ```
 
-
-#### 12. Les cards
+#### 12. Cards
 Import `MatCardModule`
 ```html
 <mat-card>
@@ -324,7 +322,7 @@ Import `MatCardModule`
 </mat-card>
 ```
 
-#### 13. Les Tabs
+#### 13. Tabs
 Import `MatTabsModule`
 ```html
 <mat-tab-group #tabRef (selectedTabChange)="logChange(tabRef.selectedIndex)>
@@ -334,7 +332,7 @@ Import `MatTabsModule`
 </mat-tab-group>
 ```
 
-#### 14. Les stepper
+#### 14. Stepper
 Import `MatStepperModule`
 ```html
 <mat-horizontal-stepper>
@@ -358,22 +356,23 @@ Import `MatStepperModule`
 ```
 You can also add the angular attribute "completed" and "optional" to your mat-step to modify the navigation.
 
-#### 15. Les inputs
+#### 15. Forms
+##### Inputs
 ```html
 
 ```
 
-#### 16. Les select
+##### Select
 ```html
 
 ```
 
-#### 17. Les checkbox et radio buttons
+##### Checkbox and Radio buttons
 ```html
 
 ```
 
-#### 18. Le Date Picker
+#### 18. Date Picker
 ```html
 
 ```
