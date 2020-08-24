@@ -357,19 +357,53 @@ Import `MatStepperModule`
 You can also add the angular attribute "completed" and "optional" to your mat-step to modify the navigation.
 
 #### 15. Forms
+Import `MatFormFieldModule`
 ##### Inputs
+Import `MatInputModule`
 ```html
-
+  <mat-form-field color="accent" floatLabel="auto" appearance="legacy">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align=end>Min 5 characters</mat-hint>
+  </mat-form-field>
 ```
 
 ##### Select
+Import `MatSelectModule`
 ```html
-
+  <mat-form-field color="accent">
+    <mat-label>Framework</mat-label>
+    <mat-select [(value)]="selectedValue">
+      <mat-option>-</mat-option>
+      <mat-optgroup label="Web">
+        <mat-option value="angular">Angular</mat-option>
+        <mat-option value="react">React</mat-option>
+        <mat-option value="vue">Vue</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Mobile">
+        <mat-option value="ionic">Ionic</mat-option>
+        <mat-option value="reactNative">React Native</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
 ```
+`[(value)]="selectedValue"` links the value to the component attribute.
+In the `mat-select` you can also add the attribute "multiple" to make more than 1 selection. Checkboxes appear in that case.
 
 ##### Checkbox and Radio buttons
+Import `MatCheckboxModule` for Checkbox Buttons and `MatRadioModule` for Radio Buttons
 ```html
+<!--Checkbox Buttons-->
+  <mat-checkbox>Angular</mat-checkbox>
+  <br>
+  <mat-checkbox labelPosition="before">Angular</mat-checkbox>
 
+<!--Radio Buttons-->
+  <mat-radio-group [(ngModel)]="radioValue">
+    <mat-radio-button value="angular">Angular</mat-radio-button>
+    <mat-radio-button value="react">React</mat-radio-button>
+    <mat-radio-button value="vue">Vue</mat-radio-button>
+  </mat-radio-group>
 ```
 
 #### 18. Date Picker

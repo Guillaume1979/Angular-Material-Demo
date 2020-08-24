@@ -12,6 +12,8 @@ import {WelcomeComponent} from './content/welcome/welcome.component';
 import {PanelComponent} from './content/panel/panel.component';
 import { CardComponent } from './content/card/card.component';
 import { TabsComponent } from './content/tabs/tabs.component';
+import { FormsComponent } from './content/forms/forms.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { TabsComponent } from './content/tabs/tabs.component';
     WelcomeComponent,
     PanelComponent,
     CardComponent,
-    TabsComponent
+    TabsComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +35,11 @@ import { TabsComponent } from './content/tabs/tabs.component';
       {path: '', component: WelcomeComponent},
       {path: 'panel', component: PanelComponent},
       {path: 'card', component: CardComponent},
-      {path: 'tabs', component: TabsComponent}
+      {path: 'tabs', component: TabsComponent},
+      {path: 'forms', component: FormsComponent}
 
-    ])
+    ]),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

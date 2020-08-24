@@ -1,0 +1,72 @@
+<div class="formFrame">
+  <h1>Form with inputs</h1>
+
+
+  <mat-form-field color="accent" floatLabel="auto" appearance="legacy">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align=end>Min 5 characters</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field color="accent" floatLabel="auto" appearance="standard">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align=end>Min 5 characters</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field color="accent" floatLabel="auto" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align=end>Min 5 characters</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field color="accent" floatLabel="auto" appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align=end>Min 5 characters</mat-hint>
+  </mat-form-field>
+
+</div>
+
+<div class="formFrame">
+  <h1>Select form field</h1>
+
+  <mat-form-field color="accent">
+    <mat-label>Framework</mat-label>
+    <mat-select [(value)]="selectedValue">
+      <mat-option>-</mat-option>
+      <mat-optgroup label="Web">
+        <mat-option value="angular">Angular</mat-option>
+        <mat-option value="react">React</mat-option>
+        <mat-option value="vue">Vue</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Mobile">
+        <mat-option value="ionic">Ionic</mat-option>
+        <mat-option value="reactNative">React Native</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+  Selected Value = {{selectedValue}}
+</div>
+
+<div class="formFrame">
+  <h1>Checkbox</h1>
+
+  <mat-checkbox>Angular</mat-checkbox>
+  <br>
+  <mat-checkbox labelPosition="before">Angular</mat-checkbox>
+
+</div>
+
+<div class="formFrame">
+  <h1>Radio Buttons</h1>
+
+
+  <mat-radio-group [(ngModel)]="radioValue">
+    <mat-radio-button value="angular">Angular</mat-radio-button>
+    <mat-radio-button value="react">React</mat-radio-button>
+    <mat-radio-button value="vue">Vue</mat-radio-button>
+  </mat-radio-group>
+  {{radioValue}}
+
+</div>
