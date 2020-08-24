@@ -216,7 +216,7 @@ We can also proceed to lazzy loading of the menu content with ``ng-template`` et
 #### 9. Les listes
 Import ``MatListModule``
 
-#####Simple list :
+##### Simple list :
 ```html
     <mat-list>
       <mat-list-item>Item 1</mat-list-item>
@@ -224,7 +224,7 @@ Import ``MatListModule``
       <mat-list-item>Item 3</mat-list-item>
     </mat-list>
 ```
-######list for navigation
+###### list for navigation
 You can use it in a sidenav for example.
 ```html
     <mat-nav-list>
@@ -234,7 +234,7 @@ You can use it in a sidenav for example.
     </mat-nav-list>
 ```
 
-#####List with icons and separations
+##### List with icons and separations
 Import also ``MatDividerModule``
 ```html
     <mat-list>
