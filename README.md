@@ -185,7 +185,7 @@ Import ``MatMenuModule``
     <button mat-button>Language</button>
     <button mat-button>Logout</button>
 ```
-Avec les sous-menus lorsque le menu s'ouvre
+With subMenu
 ```html
     <button mat-button [matMenuTriggerFor]="lessons">Lessons</button>
     <mat-menu #lessons="matMenu">
@@ -202,7 +202,7 @@ Avec les sous-menus lorsque le menu s'ouvre
       </mat-menu>
     </mat-menu>
 ```
-On peut aussi procéder à un lazzy loading du contenu des menus avec ``ng-template`` et ``matMenuContent``
+We can also proceed to lazzy loading of the menu content with ``ng-template`` et ``matMenuContent``
 ```html
 <button mat-button [matMenuTriggerFor]="lessons">Lessons</button>
 <mat-menu #lessons="matMenu">
@@ -266,24 +266,97 @@ Import ``MatGridListModule``
 ```
 
 #### 11. Les panels (dépliants)
-```html
+Import `MatExpansionModule`
 
+The accordion tag allows to close automaticaly a panel when another one is opening
+```html
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Panel 1
+      </mat-panel-title>
+      <mat-panel-description>
+        Panel's description
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Panel's Content</p>
+    <mat-action-row>
+      <button mat-button> Action</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Panel 2
+      </mat-panel-title>
+      <mat-panel-description>
+        Panel's description
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Panel's Content</p>
+    <mat-action-row>
+      <button mat-button>Action</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
 ```
 
-#### 12. Les cards
-```html
 
+#### 12. Les cards
+Import `MatCardModule`
+```html
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Card Title</mat-card-title>
+    <mat-card-subtitle>subtitle</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="assets/img/chien_motard.jpg" alt="Photo of a dog on a moto">
+  <mat-card-content>
+    <p>Put here the card content</p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="accent">Button 1</button>
+    <button mat-raised-button color="accent">Button 2</button>
+  </mat-card-actions>
+</mat-card>
 ```
 
 #### 13. Les Tabs
+Import `MatTabsModule`
 ```html
-
+<mat-tab-group #tabRef (selectedTabChange)="logChange(tabRef.selectedIndex)>
+  <mat-tab label="Angular">Angular content</mat-tab>
+  <mat-tab label="React">React content</mat-tab>
+  <mat-tab label="Vue">Vue content</mat-tab>
+</mat-tab-group>
 ```
 
 #### 14. Les stepper
+Import `MatStepperModule`
 ```html
-
+<mat-horizontal-stepper>
+  <mat-step label="Shipping Address">
+    <p>Shipping Address Details</p>
+    <button mat-button color="accent" matStepperNext>Next Step</button>
+  </mat-step>
+  <mat-step label="Billing Address">
+    <p>Billing Address Details</p>
+    <!--    Buttons to navigate between the next and previous steps-->
+    <div>
+      <button mat-button color="accent" matStepperPrevious>Previous Step</button>
+      <button mat-button color="accent" matStepperNext>Next Step</button>
+    </div>
+  </mat-step>
+  <mat-step label="Place Order">
+    <p>Order Details</p>
+    <button mat-button color="accent" matStepperPrevious>Previous Step</button>
+  </mat-step>
+</mat-horizontal-stepper>
 ```
+You can also add the angular attribute "completed" and "optional" to your mat-step to modify the navigation.
 
 #### 15. Les inputs
 ```html

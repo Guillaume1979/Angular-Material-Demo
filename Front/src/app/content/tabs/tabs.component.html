@@ -1,0 +1,30 @@
+<mat-tab-group #tabRef>
+  <mat-tab label="Angular">Angular content</mat-tab>
+  <mat-tab label="React">React content</mat-tab>
+  <mat-tab label="Vue">Vue content</mat-tab>
+</mat-tab-group>
+<br>
+<p>{{tabRef.selectedIndex}} is the index of the selected tab. You can use the event handler (selectedTabChange) with a
+  method in your component to use the the selected tab in your logic.</p>
+<p>Exemple : (selectedTabChange)="logChange(tabRef.selectedIndex)", then define the logChange method in your
+  component</p>
+
+<br>
+<mat-horizontal-stepper>
+  <mat-step label="Shipping Address">
+    <p>Shipping Address Details</p>
+    <button mat-button color="accent" matStepperNext>Next Step</button>
+  </mat-step>
+  <mat-step label="Billing Address">
+    <p>Billing Address Details</p>
+    <!--    Buttons to navigate between the next and previous steps-->
+    <div>
+      <button mat-button color="accent" matStepperPrevious>Previous Step</button>
+      <button mat-button color="accent" matStepperNext>Next Step</button>
+    </div>
+  </mat-step>
+  <mat-step label="Place Order">
+    <p>Order Details</p>
+    <button mat-button color="accent" matStepperPrevious>Previous Step</button>
+  </mat-step>
+</mat-horizontal-stepper>

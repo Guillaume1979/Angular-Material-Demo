@@ -10,6 +10,8 @@ import {FooterComponent} from './shared/footer/footer.component';
 import {SidebarComponent} from './shared/sidebar/sidebar.component';
 import {WelcomeComponent} from './content/welcome/welcome.component';
 import {PanelComponent} from './content/panel/panel.component';
+import { CardComponent } from './content/card/card.component';
+import { TabsComponent } from './content/tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {PanelComponent} from './content/panel/panel.component';
     FooterComponent,
     SidebarComponent,
     WelcomeComponent,
-    PanelComponent
+    PanelComponent,
+    CardComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,10 @@ import {PanelComponent} from './content/panel/panel.component';
     MaterialModule,
     RouterModule.forRoot([
       {path: '', component: WelcomeComponent},
-      {path: 'panel', component: PanelComponent}
+      {path: 'panel', component: PanelComponent},
+      {path: 'card', component: CardComponent},
+      {path: 'tabs', component: TabsComponent}
+
     ])
   ],
   providers: [],
