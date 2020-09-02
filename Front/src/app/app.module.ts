@@ -18,6 +18,7 @@ import { DatepickerComponent } from './content/datepicker/datepicker.component';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { TooltipComponent } from './content/tooltip/tooltip.component';
 import { SnackbarComponent } from './content/snackbar/snackbar.component';
+import { DialogComponent } from './shared/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SnackbarComponent } from './content/snackbar/snackbar.component';
     FormsComponent,
     DatepickerComponent,
     TooltipComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogComponent} from '../../shared/dialog/dialog.component';
 
 @Component({
   selector: 'app-snackbar',
@@ -8,14 +10,17 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class SnackbarComponent implements OnInit {
 
-  constructor(private snackbar: MatSnackBar) {
+  name: string;
+
+  constructor(private snackbar: MatSnackBar,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
   }
 
   openSnackBar(message, action): void {
-    let snackBarRef = this.snackbar.open(message, action,
+    const snackBarRef = this.snackbar.open(message, action,
       {duration: 2000, horizontalPosition: 'center', verticalPosition: 'top'});
 
     snackBarRef.afterDismissed().subscribe(
@@ -25,6 +30,13 @@ export class SnackbarComponent implements OnInit {
     snackBarRef.onAction().subscribe(
       () => console.log('The snackbar was undid')
     );
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {data: {name: this.name}});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`dialog was closed and the user clicked on ${result}`);
+    });
   }
 
 

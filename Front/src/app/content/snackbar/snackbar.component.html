@@ -1,4 +1,16 @@
+<h2>Snackbar Demo</h2>
+
 <button mat-button (click)="openSnackBar('Item deleted', 'Undo')">
   Delete
   <mat-icon>delete</mat-icon>
 </button>
+<br>
+<br>
+
+<h2>Dialog Demo</h2>
+
+<mat-form-field>
+  <mat-label>Name</mat-label>
+  <input matInput [(ngModel)]="name">
+</mat-form-field>
+<button mat-raised-button (click)="openDialog()">Send</button>

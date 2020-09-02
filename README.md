@@ -523,7 +523,52 @@ In the component, do not forget to inject the MatSnackBar component in the const
 
 #### 18. Dialog
 Import `MatDialogModule`
+Here an example. The mechanics is in the TS component.
+Moreover, we need to create a dedicated component to serve the dialog.
+````html
+<mat-form-field>
+  <mat-label>Name</mat-label>
+  <input matInput [(ngModel)]="name">
+</mat-form-field>
+<button mat-raised-button (click)="openDialog()">Send</button>
+````
+````ts
+export class SnackbarComponent implements OnInit {
+
+  name: string;
+
+  constructor(private snackbar: MatSnackBar,
+              private dialog: MatDialog) {
+  }
+
+//and also
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {data: {name: this.name}});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`dialog was closed and the user clicked on ${result}`);
+    });
+  }
+````
+
+and in the dedicated component :
 
 ````html
+<h2 mat-dialog-title>My title</h2>
+<p mat-dialog-content>Your name is {{data.name}}</p>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close="save">Save</button>
+  <button mat-raised-button mat-dialog-close="close">Close</button>
+</mat-dialog-actions>
+````
+`mat-dialog-close` allows to close the window of the dialog and to send a value.
 
+In the component, first import the Inject module and the Mat dialog data to transmit datas from the parent to the dialog component.
+````ts
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+````
+then the injection in the constructor
+````ts
+constructor(@Inject(MAT_DIALOG_DATA) public data: any)
 ````
