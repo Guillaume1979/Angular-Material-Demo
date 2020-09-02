@@ -476,7 +476,7 @@ providers: [
   ]
 ```
 
-#### 18. Tooltip
+#### 18. Tooltip (Info Message)
 Import `MatTooltipModule`
 
 ````html
@@ -488,4 +488,42 @@ Import `MatTooltipModule`
   matTooltipHideDelay="2000"
 >Hello
 </button>
+````
+
+#### 18. Snackbar (toaster)
+Import `MatSnackBarModule`
+
+````html
+<button mat-button (click)="openSnackBar('Item deleted', 'Undo')">
+  Delete
+  <mat-icon>delete</mat-icon>
+</button>
+````
+In the component, do not forget to inject the MatSnackBar component in the constructor (and the importation in consequence)
+````ts
+  constructor(private snackbar: MatSnackBar) {
+  }
+
+  ngOnInit(): void {
+  }
+
+  openSnackBar(message, action): void {
+    let snackBarRef = this.snackbar.open(message, action,
+      {duration: 2000, horizontalPosition: 'center', verticalPosition: 'top'});
+
+    snackBarRef.afterDismissed().subscribe(
+      () => console.log('The snackbar was dismissed')
+    );
+
+    snackBarRef.onAction().subscribe(
+      () => console.log('The snackbar was undid')
+    );
+  }
+````
+
+#### 18. Dialog
+Import `MatDialogModule`
+
+````html
+
 ````

@@ -17,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DatepickerComponent } from './content/datepicker/datepicker.component';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { TooltipComponent } from './content/tooltip/tooltip.component';
+import { SnackbarComponent } from './content/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TooltipComponent } from './content/tooltip/tooltip.component';
     TabsComponent,
     FormsComponent,
     DatepickerComponent,
-    TooltipComponent
+    TooltipComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { TooltipComponent } from './content/tooltip/tooltip.component';
       {path: 'tabs', component: TabsComponent},
       {path: 'forms', component: FormsComponent},
       {path: 'datepicker', component: DatepickerComponent},
-      {path: 'tooltip', component: TooltipComponent}
+      {path: 'tooltip', component: TooltipComponent},
+      {path: 'snackbar', component: SnackbarComponent}
 
     ]),
     FormsModule,
