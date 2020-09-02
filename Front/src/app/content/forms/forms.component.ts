@@ -42,7 +42,7 @@ export class FormsComponent implements OnInit {
         i++;
       });
       this.checkboxForm.setControl('frameworks' , frameworksArray);
-      console.log('fin ', this.checkboxForm.value);
     }
+    console.log('fin ', this.checkboxForm.value);
   }
 }

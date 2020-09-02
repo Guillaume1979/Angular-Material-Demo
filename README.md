@@ -461,7 +461,31 @@ And the logic with the definition of the formGroup and the "change" method :
 ```
 
 #### 18. Date Picker
+Import `MatDatepickerModule` and `MatNativeDateModule`
 ```html
-
+<mat-form-field>
+  <input matInput [matDatepicker]="myDatePicker">
+  <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+  <mat-datepicker #myDatePicker></mat-datepicker>
+</mat-form-field>
+```
+To use the local date format, add in app-module the following provider :
+```ts
+providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'fr'}
+  ]
 ```
 
+#### 18. Tooltip
+Import `MatTooltipModule`
+
+````html
+<button
+  mat-raised-button
+  matTooltip="Welcome on my demo"
+  matTooltipPosition="after"
+  matTooltipShowDelay="500"
+  matTooltipHideDelay="2000"
+>Hello
+</button>
+````

@@ -14,6 +14,9 @@ import { CardComponent } from './content/card/card.component';
 import { TabsComponent } from './content/tabs/tabs.component';
 import { FormsComponent } from './content/forms/forms.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DatepickerComponent } from './content/datepicker/datepicker.component';
+import {MAT_DATE_LOCALE} from '@angular/material/core';
+import { TooltipComponent } from './content/tooltip/tooltip.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     PanelComponent,
     CardComponent,
     TabsComponent,
-    FormsComponent
+    FormsComponent,
+    DatepickerComponent,
+    TooltipComponent
   ],
   imports: [
     BrowserModule,
@@ -36,13 +41,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
       {path: 'panel', component: PanelComponent},
       {path: 'card', component: CardComponent},
       {path: 'tabs', component: TabsComponent},
-      {path: 'forms', component: FormsComponent}
+      {path: 'forms', component: FormsComponent},
+      {path: 'datepicker', component: DatepickerComponent},
+      {path: 'tooltip', component: TooltipComponent}
 
     ]),
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'fr'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
