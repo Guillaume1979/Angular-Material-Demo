@@ -13,7 +13,7 @@ import {PanelComponent} from './content/panel/panel.component';
 import { CardComponent } from './content/card/card.component';
 import { TabsComponent } from './content/tabs/tabs.component';
 import { FormsComponent } from './content/forms/forms.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,8 @@ import {FormsModule} from '@angular/forms';
       {path: 'forms', component: FormsComponent}
 
     ]),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 # Angular Material
 
+This repository presents some cool features provided by Angular Material.
 
 ## 1. Installation
 
@@ -404,6 +405,59 @@ Import `MatCheckboxModule` for Checkbox Buttons and `MatRadioModule` for Radio B
     <mat-radio-button value="react">React</mat-radio-button>
     <mat-radio-button value="vue">Vue</mat-radio-button>
   </mat-radio-group>
+```
+
+##### Multiple checkboxes
+
+This is more complicated than for one single checkbox. Because we cannot link the different checkboxes to the same formControlName.
+In order to do that we will use some logic with event emitter.
+
+```html
+<form [formGroup]="checkboxForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username">
+  </mat-form-field>
+
+  <span>Your framework(s) :</span>
+  <mat-checkbox [value]="'Angular'" (change)="onCheckboxChange($event)">Angular</mat-checkbox>
+  <mat-checkbox [value]="'React'" (change)="onCheckboxChange($event)">React</mat-checkbox>
+  <mat-checkbox [value]="'Vue'" (change)="onCheckboxChange($event)">Vue</mat-checkbox>
+</form>
+```
+
+And the logic with the definition of the formGroup and the "change" method :
+
+```typescript
+
+  checkboxForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.checkboxForm = fb.group({
+      username: [],
+      frameworks: fb.array([])
+    });
+  }
+
+  ngOnInit(): void {
+  }
+
+  onCheckboxChange(event): void {
+    const frameworksArray: FormArray = this.checkboxForm.get('frameworks') as FormArray;
+    if (event.checked) {
+      frameworksArray.push(new FormControl(event.source.value));
+      this.checkboxForm.setControl('frameworks' , frameworksArray);
+    } else {
+      let i = 0;
+      frameworksArray.controls.forEach((item: FormControl) => {
+        if (item.value === event.source.value) {
+          frameworksArray.removeAt(i);
+        }
+        i++;
+      });
+      this.checkboxForm.setControl('frameworks' , frameworksArray);
+    }
+  }
 ```
 
 #### 18. Date Picker

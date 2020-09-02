@@ -59,6 +59,22 @@
 </div>
 
 <div class="formFrame">
+  <h1>Multiple Checkboxes</h1>
+<form [formGroup]="checkboxForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username">
+  </mat-form-field>
+
+  <span>Your framework(s) :</span>
+  <mat-checkbox [value]="'Angular'" (change)="onCheckboxChange($event)">Angular</mat-checkbox>
+  <mat-checkbox [value]="'React'" (change)="onCheckboxChange($event)">React</mat-checkbox>
+  <mat-checkbox [value]="'Vue'" (change)="onCheckboxChange($event)">Vue</mat-checkbox>
+</form>
+  {{checkboxForm.value | json}}
+</div>
+
+<div class="formFrame">
   <h1>Radio Buttons</h1>
 
 
