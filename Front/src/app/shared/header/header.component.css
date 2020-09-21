@@ -1,10 +1,7 @@
 /*HEADER*/
 
-mat-toolbar {
-  height: 100px;
-}
-
 .navbar {
+  height: 100px;
   justify-content: space-between;
   font-size: 20px;
 }
@@ -22,4 +19,9 @@ mat-toolbar {
 .leftMenu {
   display: flex;
   align-items: center;
+}
+
+.rightMenu {
+  display: flex;
+  flex-wrap: wrap;
 }
