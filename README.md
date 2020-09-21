@@ -572,3 +572,5 @@ then the injection in the constructor
 ````ts
 constructor(@Inject(MAT_DIALOG_DATA) public data: any)
 ````
+
+#### 19. Table
