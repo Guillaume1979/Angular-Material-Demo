@@ -1,9 +1,6 @@
 <mat-toolbar color="primary" class="navbar">
   <div class="leftMenu">
-<!--    <button mat-icon-button (click)="sidenav.toggle()">-->
-<!--      <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>-->
-<!--      <mat-icon *ngIf="sidenav.opened">menu_open</mat-icon>-->
-<!--    </button>-->
+    <button mat-button *ngIf="isHandset$ | async"><mat-icon>menu</mat-icon></button>
     <a [routerLink]="['']">Cetelem</a>
   </div>
   <div class="rightMenu">
