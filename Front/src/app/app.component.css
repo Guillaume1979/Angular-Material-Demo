@@ -9,4 +9,16 @@ app-sidebar {
   display: flex;
 }
 
+app-header {
+  /*instructions to make header sticky*/
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
+app-footer {
+  /*instructions to make footer sticky*/
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+}
