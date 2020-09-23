@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Breakpoints, BreakpointObserver} from '@angular/cdk/layout';
-import {map, shareReplay} from 'rxjs/operators';
+import {InteractionService} from '../interaction.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,16 +8,25 @@ import {map, shareReplay} from 'rxjs/operators';
 })
 export class SidebarComponent implements OnInit {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay(1),
-    );
+ isHandset = false;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(private interactionService: InteractionService) {
   }
 
   ngOnInit(): void {
+    this.checkIfIsHandset();
+  }
+
+  checkIfIsHandset(): void {
+    this.interactionService.isHandset$.subscribe(
+      state => {
+        if (state === true) {
+          this.isHandset = true;
+        } else {
+          this.isHandset = false;
+        }
+      }
+    );
   }
 
 }

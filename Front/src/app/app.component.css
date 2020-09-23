@@ -18,7 +18,8 @@ app-header {
 
 app-footer {
   /*instructions to make footer sticky*/
-  position: sticky;
-  bottom: 0;
-  z-index: 1000;
+  /*problem to solve : then end of the content text comes behind the footer at the end of the scroll*/
+  /*position: sticky;*/
+  /*bottom: 0;*/
+  /*z-index: 1000;*/
 }

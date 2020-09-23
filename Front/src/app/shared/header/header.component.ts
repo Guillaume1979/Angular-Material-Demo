@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {map, shareReplay} from 'rxjs/operators';
+import {InteractionService} from '../interaction.service';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +8,27 @@ import {map, shareReplay} from 'rxjs/operators';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay(1),
-    );
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  isHandset = false;
+
+  constructor(private interactionService: InteractionService) {
+  }
 
   ngOnInit(): void {
+    this.checkIfIsHandset();
+
   }
+
+  checkIfIsHandset(): void {
+    this.interactionService.isHandset$.subscribe(
+      state => {
+        if (state === true) {
+          this.isHandset = true;
+        } else {
+          this.isHandset = false;
+        }
+      }
+    );
+  }
+
 
 }
