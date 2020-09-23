@@ -8,13 +8,17 @@ import {InteractionService} from '../interaction.service';
 })
 export class SidebarComponent implements OnInit {
 
- isHandset = false;
+  isHandset = false;
+  isOpen: boolean;
 
   constructor(private interactionService: InteractionService) {
   }
 
   ngOnInit(): void {
     this.checkIfIsHandset();
+    this.interactionService.isSidebarOpen$.subscribe(
+      state => this.isOpen = state
+    );
   }
 
   checkIfIsHandset(): void {
@@ -22,11 +26,20 @@ export class SidebarComponent implements OnInit {
       state => {
         if (state === true) {
           this.isHandset = true;
+          this.isOpen = !this.isHandset;
         } else {
           this.isHandset = false;
+          this.isOpen = !this.isHandset;
         }
       }
     );
   }
+
+  closeSidebar(): void {
+    if (this.isOpen) {
+      this.interactionService.changeSidebarState();
+    }
+  }
+
 
 }

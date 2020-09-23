@@ -15,7 +15,18 @@ export class InteractionService {
       shareReplay(1),
     );
 
+  private isSidebarOpen = new Subject<boolean>();
+  isSidebarOpen$ = this.isSidebarOpen.asObservable();
+  private toggleSidebarState = false;
+
   constructor(private breakpointObserver: BreakpointObserver) {
   }
+
+  changeSidebarState(): void {
+    this.toggleSidebarState = !this.toggleSidebarState;
+    this.isSidebarOpen.next(this.toggleSidebarState);
+    console.log('toggleSidebarState =', this.toggleSidebarState);
+  }
+
 
 }

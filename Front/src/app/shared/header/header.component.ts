@@ -31,4 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  toggleSidebar(): void {
+    this.interactionService.changeSidebarState();
+  }
 }
